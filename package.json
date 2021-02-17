@@ -1,0 +1,69 @@
+{
+  "name": "coc-coverage",
+  "version": "0.1.0",
+  "description": "coc.nvim extension to show test coverage sign",
+  "author": "ruanyl <ruanyu1@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim"
+  ],
+  "engines": {
+    "coc": "^0.0.80"
+  },
+  "scripts": {
+    "lint": "eslint src --ext ts",
+    "clean": "rimraf lib",
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "prepare": "npm-run-all clean build"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": true
+  },
+  "devDependencies": {
+    "@types/istanbul-lib-coverage": "^2.0.3",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/node": "^14.14.28",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "coc.nvim": "^0.0.80",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.2"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-coverage configuration",
+      "properties": {
+        "coc-coverage.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-coverage extension"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "coc-coverage.Command",
+        "title": "coc-coverage command title"
+      }
+    ]
+  },
+  "dependencies": {
+    "chokidar": "^3.5.1",
+    "fsevents": "^2.3.2",
+    "istanbul-lib-coverage": "^3.0.0",
+    "lodash.debounce": "^4.0.8"
+  }
+}
