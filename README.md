@@ -1,18 +1,18 @@
 # coc-coverage
 
-coc.nvim extension to show test coverage
+coc.nvim extension to show test coverage sign
 
 ## Install
 
 `:CocInstall coc-coverage`
 
-## Keymaps
+The extension supports istanbul `json reporter` format:
+- [istanbul](https://github.com/gotwarlost/istanbul)
+- [nyc](https://github.com/istanbuljs/nyc)
+- [karma-coverage](https://github.com/karma-runner/karma-coverage)
+- [jest](https://github.com/facebook/jest)
 
-`nmap <silent> <C-l> <Plug>(coc-coc-coverage-keymap)`
-
-## Lists
-
-`:CocList demo_list`
+By default, this extension read coverage from `coverage/coverage-final.json`
 
 ## License
 
