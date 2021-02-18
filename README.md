@@ -23,6 +23,34 @@ By default, this extension read coverage from `coverage/coverage-final.json`
 
 `coverage.jsonReportPath` path to coverage json report, default `/coverage/coverage-final.json`
 
+## Configure Status Line
+```
+function! LightlineCocCoverageStatus() abort
+  let status = get(g:, 'coc_coverage_lines_pct', '')
+  if empty(status)
+    return ''
+  endif
+
+  return '☂ ' . status . '% Lines Covered'
+endfunction
+
+let g:lightline = {
+  \ 'active': {
+  \   'left': [
+  \     [ 'mode', 'paste' ],
+  \     [ 'readonly', 'filename' ]
+  \   ],
+  \   'right':[
+  \     [ 'coccoverage', 'lineinfo', 'percent', 'cocstatus' ],
+  \     [ 'cocapollo' ]
+  \   ],
+  \ },
+  \ 'component_function': {
+  \   'coccoverage': 'LightlineCocCoverageStatus'
+  \ }
+\ }
+```
+
 
 ## License
 
