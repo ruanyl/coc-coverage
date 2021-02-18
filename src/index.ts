@@ -1,6 +1,6 @@
 import fs from 'fs';
 import chokidar from 'chokidar';
-import { Document, ExtensionContext, Uri, window, workspace } from 'coc.nvim';
+import { Document, ExtensionContext, Uri, workspace } from 'coc.nvim';
 import path from 'path';
 import debounce from 'lodash.debounce';
 import { createFileCoverage } from 'istanbul-lib-coverage';
@@ -29,8 +29,6 @@ function updateSign(doc: Document, sign: string, signGroup: string, signPriority
 }
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  window.showMessage(`coc-coverage works!`);
-
   const config = workspace.getConfiguration('coverage');
   const signPriority = config.get<number>('signPriority', 10);
   const uncoveredSign = config.get<string>('uncoveredSign.text', '▣');
