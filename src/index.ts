@@ -30,6 +30,11 @@ function updateSign(doc: Document, sign: string, signGroup: string, signPriority
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration('coverage');
+  const enabled = config.get<boolean>('enabled', true);
+  if (!enabled) {
+    return;
+  }
+
   const signPriority = config.get<number>('signPriority', 10);
   const uncoveredSign = config.get<string>('uncoveredSign.text', '▣');
   const hlGroup = config.get<string>('uncoveredSign.hlGroup', 'UncoveredLine');

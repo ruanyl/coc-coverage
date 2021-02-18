@@ -46,19 +46,28 @@
       "type": "object",
       "title": "coc-coverage configuration",
       "properties": {
-        "coc-coverage.enabled": {
+        "coverage.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-coverage extension"
+        },
+        "coverage.uncoveredSign.text": {
+          "type": "string",
+          "default": "▣",
+          "description": "Sign to display on uncovered lines"
+        },
+        "coverage.uncoveredSign.hlGroup": {
+          "type": "string",
+          "default": "UncoveredLine",
+          "description": "Uncovered sign color"
+        },
+        "coverage.jsonReportPath": {
+          "type": "string",
+          "default": "/coverage/coverage-final.json",
+          "description": "Path to coverage json report"
         }
       }
-    },
-    "commands": [
-      {
-        "command": "coc-coverage.Command",
-        "title": "coc-coverage command title"
-      }
-    ]
+    }
   },
   "dependencies": {
     "chokidar": "^3.5.1",
