@@ -14,6 +14,16 @@ The extension supports istanbul `json reporter` format:
 
 By default, this extension read coverage from `coverage/coverage-final.json`
 
+## Configuration
+`coverage.enabled` enable coc-coverage extension, default: `true`
+
+`coverage.uncoveredSign.text` the sign to display on uncovered lines, default `▣`
+
+`coverage.uncoveredSign.hlGroup` uncovered sign hightlight group, default `UncoveredLine`
+
+`coverage.jsonReportPath` path to coverage json report, default `/coverage/coverage-final.json`
+
+
 ## License
 
 MIT
