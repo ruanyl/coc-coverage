@@ -70,7 +70,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     true
   );
   workspace.nvim.command(`hi default link CocCoverageUncoveredSign ${hlGroup}`, true);
-  workspace.nvim.command(`hi UncoveredLine guifg=#ff2222`, true);
+  workspace.nvim.command(`hi UncoveredLine guifg=#ffaa00`, true);
 
   startWatch(path.join(workspace.root, reportPath));
 
