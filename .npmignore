@@ -12,3 +12,5 @@ yarn-error.log
 .eslintrc.js
 .prettierrc
 .eslintrc.js
+coverage
+.env

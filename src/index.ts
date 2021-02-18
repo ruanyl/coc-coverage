@@ -35,7 +35,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const signPriority = config.get<number>('signPriority', 10);
   const uncoveredSign = config.get<string>('uncoveredSign.text', '▣');
   const hlGroup = config.get<string>('uncoveredSign.hlGroup', 'UncoveredLine');
-  const reportPath = config.get<string>('json.report.path', DEFAULT_REPORT_PATH);
+  const reportPath = config.get<string>('jsonReportPath', DEFAULT_REPORT_PATH);
 
   const debounceReadFile = debounce((path) => {
     const str = fs.readFileSync(path).toString();
