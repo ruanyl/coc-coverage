@@ -17,7 +17,11 @@ function updateSign(doc: Document, sign: string, signGroup: string, signPriority
   if (stats) {
     const fileCoverage = createFileCoverage(stats);
     const uncoveredLines = fileCoverage.getUncoveredLines();
-    // const summary = fileCoverage.toSummary();
+    const summary = fileCoverage.toSummary();
+    workspace.nvim.setVar('coc_coverage_branches_pct', `${summary.branches.pct}`, true);
+    workspace.nvim.setVar('coc_coverage_lines_pct', `${summary.lines.pct}`, true);
+    workspace.nvim.setVar('coc_coverage_functions_pct', `${summary.functions.pct}`, true);
+    workspace.nvim.setVar('coc_coverage_statements_pct', `${summary.statements.pct}`, true);
 
     workspace.nvim.pauseNotification();
     workspace.nvim.call('sign_unplace', [signGroup, { buffer: doc.bufnr }], true);
