@@ -55,14 +55,20 @@ export async function activate(context: ExtensionContext): Promise<void> {
   }, 2000);
 
   function startWatch(path: string) {
-    // Initial read
-    debounceReadFile(path);
+    if (fs.existsSync(path)) {
+      // Initial read
+      debounceReadFile(path);
+    }
 
     // Start watcher
     const watcher = chokidar.watch(path, { persistent: true });
-    watcher.on('change', (path) => {
-      debounceReadFile(path);
-    });
+    watcher
+      .on('change', (path) => {
+        debounceReadFile(path);
+      })
+      .on('add', (path) => {
+        debounceReadFile(path);
+      });
   }
 
   workspace.nvim.command(
