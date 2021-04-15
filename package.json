@@ -1,6 +1,6 @@
 {
   "name": "coc-coverage",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "coc.nvim extension to show test coverage sign",
   "author": "ruanyl <ruanyu1@gmail.com>",
   "license": "MIT",
