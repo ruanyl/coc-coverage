@@ -13,7 +13,9 @@ const cachedReport: { json: { [key: string]: any } } = {
 
 function updateSign(doc: Document, sign: string, signGroup: string, signPriority: number) {
   const filepath = Uri.parse(doc.uri).fsPath;
-  const stats = cachedReport.json[filepath];
+  const workspaceDir = workspace.getWorkspaceFolder(doc.uri);
+  const relativeFilepath = workspaceDir ? path.relative(workspaceDir.uri, doc.uri) : '';
+  const stats = cachedReport.json[filepath] || cachedReport.json[relativeFilepath];
   if (stats) {
     const fileCoverage = createFileCoverage(stats);
     const uncoveredLines = fileCoverage.getUncoveredLines();
