@@ -1,9 +1,10 @@
-import fs from 'fs';
-import chokidar from 'chokidar';
 import { Document, ExtensionContext, Uri, workspace } from 'coc.nvim';
-import path from 'path';
-import debounce from 'lodash.debounce';
+
+import chokidar from 'chokidar';
 import { createFileCoverage } from 'istanbul-lib-coverage';
+import debounce from 'lodash.debounce';
+import fs from 'fs';
+import path from 'path';
 
 const DEFAULT_REPORT_PATH = '/coverage/coverage-final.json';
 const signGroup = 'CocCoverage';
@@ -78,7 +79,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     true
   );
   workspace.nvim.command(`hi default link CocCoverageUncoveredSign ${hlGroup}`, true);
-  workspace.nvim.command(`hi UncoveredLine guifg=#ffaa00`, true);
+  // workspace.nvim.command(`hi UncoveredLine guifg=#ffaa00`, true);
 
   startWatch(path.join(workspace.root, reportPath));
 

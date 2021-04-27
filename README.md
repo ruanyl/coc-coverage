@@ -23,6 +23,12 @@ By default, this extension read coverage from `coverage/coverage-final.json`
 
 `coverage.jsonReportPath` path to coverage json report, default `/coverage/coverage-final.json`
 
+## Customized sign color
+The default hightlight name is `UncoveredLine`, make sure this is set before loading coc.nvim
+```
+hi UncoveredLine guifg=#ffaa00 guibg=#ffaa00
+```
+
 ## Configure Status Line
 ```
 function! LightlineCocCoverageStatus() abort
